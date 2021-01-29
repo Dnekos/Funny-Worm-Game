@@ -14,21 +14,24 @@ public class movehead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 change = Vector3.zero;
+
         if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += Vector3.up * spd * Time.deltaTime;
-        }
+            change.y++;
         if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.left * spd * Time.deltaTime;
-        }
+            change.x--;
         if (Input.GetKey(KeyCode.S))
-        {
-            transform.position += Vector3.down * spd * Time.deltaTime;
-        }
+            change.y--;
         if (Input.GetKey(KeyCode.D))
+            change.x++;
+
+        //transform.LookAt(new Vector3(changex, changey),Vector3.forward);
+        if (change != Vector3.zero)
         {
-            transform.position += Vector3.right * spd * Time.deltaTime;
+            float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+
+        transform.position += change * spd * Time.deltaTime;
     }
 }
