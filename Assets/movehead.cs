@@ -5,6 +5,9 @@ using UnityEngine;
 public class movehead : MonoBehaviour
 {
     public float spd = 8f;
+    int jumpHash = Animator.StringToHash("Jump");
+
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +36,16 @@ public class movehead : MonoBehaviour
         }
 
         transform.position += change * spd * Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetTrigger(jumpHash);
+            Debug.Log("pressed jup");
+        }
+    }
+
+    public void Jump()
+    {
+
     }
 }
