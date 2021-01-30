@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movehead : MonoBehaviour
+public class MoveHead : MonoBehaviour
 {
     public float spd = 8f;
-    int jumpHash = Animator.StringToHash("Jump");
+    public bool onGround = false;
 
-    public Animator anim;
+    public Animation anime;
+    public Rigidbody2D head;
+
+    [Header("Debug")]
+    public bool MoveByForce = false;
+    public bool AlwaysOnGround = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 change = Vector3.zero;
 
@@ -29,23 +35,27 @@ public class movehead : MonoBehaviour
             change.x++;
 
         //transform.LookAt(new Vector3(changex, changey),Vector3.forward);
-        if (change != Vector3.zero)
+        if (change != Vector3.zero && onGround)
         {
             float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            if (MoveByForce || AlwaysOnGround)
+                head.AddForce(change * spd, ForceMode2D.Force);
+            else
+                transform.position += change * spd * Time.deltaTime;
         }
 
-        transform.position += change * spd * Time.deltaTime;
+        
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && anime.isPlaying == false)
         {
-            anim.SetTrigger(jumpHash);
-            Debug.Log("pressed jup");
+            float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
+            anime.transform.rotation = transform.rotation;//Quaternion.AngleAxis(angle, Vector3.forward);
+
+            anime.Play("Jump");
+            Debug.Log("pressed jump");
         }
-    }
 
-    public void Jump()
-    {
-
+        onGround = false;
     }
 }
