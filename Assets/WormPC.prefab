@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3075888766311008490}
   - component: {fileID: 3075888766311008485}
-  - component: {fileID: 3075888766311008487}
   - component: {fileID: 3075888766311008484}
   - component: {fileID: 3075888766311008486}
   - component: {fileID: 3075888766311008481}
   - component: {fileID: 3075888766311008482}
   - component: {fileID: 3309665452385858120}
   - component: {fileID: 8161116398386242465}
+  - component: {fileID: 5124303811192327092}
   m_Layer: 0
   m_Name: WormPC
   m_TagString: Untagged
@@ -91,26 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3075888766311008487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3075888766311008480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Solvers:
-  - {fileID: 5890482650930909375}
-  m_Weight: 1
-  m_SolverEditorData:
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
 --- !u!114 &3075888766311008484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +197,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 5890482652786091225}
+--- !u!114 &5124303811192327092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3075888766311008480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Solvers:
+  - {fileID: 5890482650930909375}
+  m_Weight: 1
+  m_SolverEditorData:
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    showGizmo: 1
 --- !u!1 &5890482650782421524
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,10 +795,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spd: 12
-  MoveByForce: 0
   onGround: 0
   anime: {fileID: 3309665452385858120}
   head: {fileID: 5890482652786091222}
+  MoveByForce: 0
+  AlwaysOnGround: 1
 --- !u!58 &5890482652786091223
 CircleCollider2D:
   m_ObjectHideFlags: 0
