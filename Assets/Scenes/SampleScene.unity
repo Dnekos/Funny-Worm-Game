@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 1023539461}
   - component: {fileID: 1023539460}
   m_Layer: 0
-  m_Name: unnamed
+  m_Name: Food
   m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 1047305475}
   - component: {fileID: 1047305474}
   m_Layer: 0
-  m_Name: imgbin-angry-duterte-crate-crate-s-FgHuPeyqCw1pGZSFGtnve0RMv
+  m_Name: Crate
   m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1304,46 +1304,6 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5890482652786091222, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
   m_PrefabInstance: {fileID: 5890482651147553280}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2064065879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5890482652786091219, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-  m_PrefabInstance: {fileID: 5890482651147553280}
-  m_PrefabAsset: {fileID: 0}
---- !u!232 &2064065882 stripped
-DistanceJoint2D:
-  m_CorrespondingSourceObject: {fileID: 5890482652786091221, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-  m_PrefabInstance: {fileID: 5890482651147553280}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2064065885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064065879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48f42ca99eafb04d913bffe49b6022f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Grabbing: 0
-  LockIn: {fileID: 2064065882}
---- !u!58 &2064065886
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064065879}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 3.61, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.11
 --- !u!1001 &5890482651147553280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1375,9 +1335,25 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3075888766311008484, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
+      propertyPath: m_Bounds.m_Center.x
+      value: -0.017585516
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075888766311008484, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
+      propertyPath: m_Bounds.m_Center.y
+      value: 7.6411963
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075888766311008484, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 2.649325
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075888766311008484, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 8.289738
+      objectReference: {fileID: 0}
     - target: {fileID: 3075888766311008486, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
       propertyPath: m_Mass
-      value: 2.8754432
+      value: 2.8754418
       objectReference: {fileID: 0}
     - target: {fileID: 3075888766311008486, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
       propertyPath: m_Simulated
@@ -1632,30 +1608,6 @@ PrefabInstance:
       value: Head
       objectReference: {fileID: 0}
     - target: {fileID: 5890482652786091220, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890482652786091220, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890482652786091220, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890482652786091220, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890482652786091220, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890482652786091220, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890482652786091220, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
@@ -1664,20 +1616,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5890482652786091221, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-      propertyPath: m_Distance
-      value: 2.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890482652786091221, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-      propertyPath: m_MaxDistanceOnly
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890482652786091221, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5890482652786091221, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
-      propertyPath: m_AutoConfigureDistance
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5890482652786091225, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
       propertyPath: spd
@@ -1705,25 +1645,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3075888766311008480, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
   m_PrefabInstance: {fileID: 5890482651147553280}
   m_PrefabAsset: {fileID: 0}
---- !u!232 &8867854067508265702
-DistanceJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8867854067508265696}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 1
-  m_ConnectedRigidBody: {fileID: 1672097494}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 0
-  m_Distance: 6.076065
-  m_MaxDistanceOnly: 1
 --- !u!111 &8867854067508265704
 Animation:
   m_ObjectHideFlags: 0

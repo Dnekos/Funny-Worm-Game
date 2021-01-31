@@ -6,10 +6,14 @@ public class BiteManager : MonoBehaviour
 {
     public bool Grabbing = false;
     public DistanceJoint2D LockIn;
+    public Animator anim;
+    public Transform TargetAnchor;
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !Grabbing)
         {
+            anim.SetTrigger("Bite");
             Debug.Log("biting down");
 
             switch (collision.tag)
@@ -17,6 +21,7 @@ public class BiteManager : MonoBehaviour
                 case "Grabbable":
                     Debug.Log("grabbed object");
                     LockIn.connectedBody = collision.attachedRigidbody;
+                    LockIn.connectedAnchor = collision.attachedRigidbody.transform.InverseTransformPoint(TargetAnchor.position);
                     LockIn.enabled = true;
                     Grabbing = true;
                     break;
