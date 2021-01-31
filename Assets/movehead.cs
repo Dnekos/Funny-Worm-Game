@@ -42,13 +42,13 @@ public class MoveHead : MonoBehaviour
             if (!biter.Grabbing)
                 transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            if (MoveByForce )
+            if (MoveByForce)
                 head.AddForce(change * spd, ForceMode2D.Force);
             else
                 transform.position += change * spd * Time.deltaTime;
         }
 
-        
+
 
         if (Input.GetKeyDown(KeyCode.Space) && anime.isPlaying == false)
         {
