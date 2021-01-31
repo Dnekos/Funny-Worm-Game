@@ -9,6 +9,7 @@ public class MoveHead : MonoBehaviour
 
     public Animation anime;
     public Rigidbody2D head;
+    BiteManager biter;
 
     [Header("Debug")]
     public bool MoveByForce = false;
@@ -17,7 +18,7 @@ public class MoveHead : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        biter = GetComponent<BiteManager>();
     }
 
     // Update is called once per frame
@@ -38,14 +39,16 @@ public class MoveHead : MonoBehaviour
         if (change != Vector3.zero && (onGround || AlwaysOnGround))
         {
             float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            if (MoveByForce )
+            if (!biter.Grabbing)
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            if (MoveByForce)
                 head.AddForce(change * spd, ForceMode2D.Force);
             else
                 transform.position += change * spd * Time.deltaTime;
         }
 
-        
+
 
         if (Input.GetKeyDown(KeyCode.Space) && anime.isPlaying == false)
         {

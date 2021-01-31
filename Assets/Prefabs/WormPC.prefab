@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &426034646869567147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727458168415031429}
+  m_Layer: 0
+  m_Name: Target Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1727458168415031429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426034646869567147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.13, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5890482652786091220}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3075888766311008480
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,6 +47,7 @@ GameObject:
   - component: {fileID: 3309665452385858120}
   - component: {fileID: 8161116398386242465}
   - component: {fileID: 5124303811192327092}
+  - component: {fileID: 7946970068362004233}
   m_Layer: 0
   m_Name: WormPC
   m_TagString: Untagged
@@ -113,8 +144,8 @@ MonoBehaviour:
   - {fileID: 5890482650821294533}
   - {fileID: 5890482651044665380}
   m_Bounds:
-    m_Center: {x: -0.029625654, y: 7.60728, z: 0}
-    m_Extent: {x: 2.6281967, y: 8.256237, z: 0}
+    m_Center: {x: 0.0043890476, y: 7.6409616, z: 0}
+    m_Extent: {x: 2.6279385, y: 8.289919, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!50 &3075888766311008486
@@ -215,6 +246,25 @@ MonoBehaviour:
   m_SolverEditorData:
   - color: {r: 0, g: 1, b: 0, a: 1}
     showGizmo: 1
+--- !u!232 &7946970068362004233
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3075888766311008480}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 5890482652786091222}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 6.076065
+  m_MaxDistanceOnly: 1
 --- !u!1 &5890482650782421524
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +290,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5890482650782421524}
-  m_LocalRotation: {x: 0, y: 0, z: -0.004790386, w: 0.99998856}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0056190374, w: 0.9999842}
   m_LocalPosition: {x: 2.2496903, y: -0.000000061037284, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -302,7 +352,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5890482650821294532}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0014340015, w: 0.999999}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0072751027, w: 0.9999736}
   m_LocalPosition: {x: 2.4673994, y: -0.0000011495391, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -442,7 +492,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5890482650969042908}
-  m_LocalRotation: {x: 0, y: 0, z: 0.021150399, w: 0.9997763}
+  m_LocalRotation: {x: 0, y: 0, z: 0.010114905, w: 0.9999489}
   m_LocalPosition: {x: 2.5323014, y: 0.0000039869838, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -502,13 +552,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5890482651044665379}
-  m_LocalRotation: {x: -0, y: -0, z: -0.71846366, w: 0.69556457}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0069685485, w: 0.9999758}
   m_LocalPosition: {x: 3.029872, y: -0.000025483434, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5890482650821294533}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -91.856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.799}
 --- !u!1 &5890482651571612111
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +584,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5890482651571612111}
-  m_LocalRotation: {x: 0, y: 0, z: -0.008744872, w: 0.9999618}
+  m_LocalRotation: {x: 0, y: 0, z: -0.009918925, w: 0.9999509}
   m_LocalPosition: {x: 2.385312, y: 0.000008723788, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -709,7 +759,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5890482652437509367}
-  m_LocalRotation: {x: 0, y: 0, z: 0.0037505594, w: 0.99999297}
+  m_LocalRotation: {x: 0, y: 0, z: 0.002338008, w: 0.9999973}
   m_LocalPosition: {x: 2.5180073, y: -0.000001022258, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -760,6 +810,9 @@ GameObject:
   - component: {fileID: 5890482652786091222}
   - component: {fileID: 5890482652786091221}
   - component: {fileID: 8605139632886646469}
+  - component: {fileID: 8772472524571837865}
+  - component: {fileID: 8479425758922952633}
+  - component: {fileID: 5802147664827076979}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -774,11 +827,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5890482652786091219}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15797138, y: 15.179625, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.09, y: 15.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5890482651772083582}
+  - {fileID: 1727458168415031429}
   m_Father: {fileID: 5890482650930909376}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -844,18 +898,18 @@ DistanceJoint2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5890482652786091219}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_EnableCollision: 1
-  m_ConnectedRigidBody: {fileID: 3075888766311008486}
+  m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
-  m_Distance: 6.078
-  m_MaxDistanceOnly: 1
+  m_Distance: 1.4
+  m_MaxDistanceOnly: 0
 --- !u!114 &8605139632886646469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,3 +923,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 5890482652786091225}
+--- !u!58 &8772472524571837865
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5890482652786091219}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.61, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.5
+--- !u!114 &8479425758922952633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5890482652786091219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48f42ca99eafb04d913bffe49b6022f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Grabbing: 0
+  LockIn: {fileID: 5890482652786091221}
+  anim: {fileID: 5802147664827076979}
+  TargetAnchor: {fileID: 1727458168415031429}
+--- !u!95 &5802147664827076979
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5890482652786091219}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 375242116cccc534d84019b94beca559, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
