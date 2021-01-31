@@ -35,11 +35,11 @@ public class MoveHead : MonoBehaviour
             change.x++;
 
         //transform.LookAt(new Vector3(changex, changey),Vector3.forward);
-        if (change != Vector3.zero && onGround)
+        if (change != Vector3.zero && (onGround || AlwaysOnGround))
         {
             float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            if (MoveByForce || AlwaysOnGround)
+            if (MoveByForce )
                 head.AddForce(change * spd, ForceMode2D.Force);
             else
                 transform.position += change * spd * Time.deltaTime;
