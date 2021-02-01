@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2406ecda0daecb49b60adf49d8a26e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   head: {fileID: 5890482652786091222}
 --- !u!111 &3309665452385858120
 Animation:
@@ -853,7 +853,7 @@ MonoBehaviour:
   anime: {fileID: 3309665452385858120}
   head: {fileID: 5890482652786091222}
   MoveByForce: 0
-  AlwaysOnGround: 1
+  MoveIfNotOnGround: 1
 --- !u!58 &5890482652786091223
 CircleCollider2D:
   m_ObjectHideFlags: 0

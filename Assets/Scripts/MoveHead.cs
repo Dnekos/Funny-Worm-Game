@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveHead : MonoBehaviour
 {
-    public float spd = 8f;
+    public float spd = 12f;
     public bool onGround = false;
 
     public Animation anime;
@@ -12,8 +12,8 @@ public class MoveHead : MonoBehaviour
     BiteManager biter;
 
     [Header("Debug")]
-    public bool MoveByForce = false;
-    public bool AlwaysOnGround = true;
+    public bool MoveByForce = false; // toggles movement styles (rigidbody weight adjustments needed if switching)
+    public bool MoveIfNotOnGround = true; // debug for testing GroundCheck
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class MoveHead : MonoBehaviour
     {
         Vector3 change = Vector3.zero;
 
+        // get movement inputs (TODO: condense into function as it is used by JumpHandler)
         if (Input.GetKey(KeyCode.W))
             change.y++;
         if (Input.GetKey(KeyCode.A))
@@ -36,7 +37,7 @@ public class MoveHead : MonoBehaviour
             change.x++;
 
         //transform.LookAt(new Vector3(changex, changey),Vector3.forward);
-        if (change != Vector3.zero && (onGround || AlwaysOnGround))
+        if (change != Vector3.zero && (onGround || MoveIfNotOnGround))
         {
             float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg;
             if (!biter.Grabbing)
@@ -50,7 +51,7 @@ public class MoveHead : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && anime.isPlaying == false)
+        if (Input.GetKeyDown(KeyCode.Space) && anime.isPlaying == false && onGround)
         {
             float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
             anime.transform.rotation = transform.rotation;//Quaternion.AngleAxis(angle, Vector3.forward);
