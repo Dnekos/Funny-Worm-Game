@@ -39,10 +39,12 @@ public class MoveHead : MonoBehaviour
         //transform.LookAt(new Vector3(changex, changey),Vector3.forward);
         if (change != Vector3.zero && (onGround || MoveIfNotOnGround))
         {
-            float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg;
             if (!biter.Grabbing)
-                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            {
+                float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg;
 
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
             if (MoveByForce)
                 head.AddForce(change * spd, ForceMode2D.Force);
             else
