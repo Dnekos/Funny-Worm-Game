@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
-    public float speed = 0.01f;
+    public float speed = 0.125f;
     public Transform worm;
     Camera cam;
 
@@ -15,11 +15,16 @@ public class CameraMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        if (Vector2.Distance(transform.position, worm.position) > cam.orthographicSize * 0.7)
+        if (Vector2.Distance(transform.position, worm.position) > cam.orthographicSize * 0.6)
         {
             transform.position = Vector2.Lerp(transform.position, worm.position, speed);
+            transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+        }
+        else if (Vector2.Distance(transform.position, worm.position) > cam.orthographicSize * 0.4)
+        {
+            transform.position = Vector2.Lerp(transform.position, worm.position, speed / 2);
             transform.position = new Vector3(transform.position.x, transform.position.y, -10);
         }
     }

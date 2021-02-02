@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BiteManager : MonoBehaviour
 {
+    public int FoodEaten = 0;
     public bool Grabbing = false;
     public DistanceJoint2D LockIn;
     public Animator anim;
@@ -28,6 +29,8 @@ public class BiteManager : MonoBehaviour
                 case "Food":
                     Debug.Log("ate object");
                     Destroy(collision.gameObject);
+                    FoodEaten++;
+
                     break;
             }
         }

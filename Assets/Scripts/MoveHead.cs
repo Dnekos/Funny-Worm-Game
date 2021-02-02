@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveHead : MonoBehaviour
 {
@@ -51,17 +52,17 @@ public class MoveHead : MonoBehaviour
                 transform.position += change * spd * Time.deltaTime;
         }
 
-
-
-        if (Input.GetKeyDown(KeyCode.Space) && anime.isPlaying == false && onGround)
+        if (Input.GetKeyDown(KeyCode.Space) && anime.isPlaying == false)// && onGround)
         {
             float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
             anime.transform.rotation = transform.rotation;//Quaternion.AngleAxis(angle, Vector3.forward);
 
+            onGround = false;// compromise for now while working out GroundCheck
             anime.Play("Jump");
             Debug.Log("pressed jump");
         }
 
-        onGround = false;
+        if (transform.position.y < -20f)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
