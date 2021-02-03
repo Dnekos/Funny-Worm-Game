@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveHead : MonoBehaviour
 {
@@ -49,25 +50,14 @@ public class MoveHead : MonoBehaviour
                 transform.position += change * spd * Time.deltaTime;
         }
 
-<<<<<<< Updated upstream
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && anime.isPlaying == false && onGround)
-=======
         if (Input.GetKey(KeyCode.Space) && anime.isPlaying == false && onGround)
->>>>>>> Stashed changes
         {
             //float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
             anime.transform.rotation = transform.rotation; // match direction with head
             anime.transform.position = (transform.position + transform.position + anime.transform.position) / 3f; // move end of worm closer to head 
 
-<<<<<<< Updated upstream
-            anime.Play("Jump");
-            Debug.Log("pressed jump");
-        }
-
-        onGround = false;
-=======
             onGround = false; // compromise for now while working out GroundCheck
             anime.Play("Jump"); // start animation (animation triggers event that calls JumpHandler
             Debug.Log("pressed jump");
@@ -76,6 +66,5 @@ public class MoveHead : MonoBehaviour
         // if fallen too low, restart scene
         if (transform.position.y < -20f)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
->>>>>>> Stashed changes
     }
 }

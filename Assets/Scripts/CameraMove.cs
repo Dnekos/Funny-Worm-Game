@@ -18,13 +18,11 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< Updated upstream:Assets/CameraMove.cs
         if (Vector2.Distance(transform.position, worm.position) > cam.orthographicSize * 0.7)
         {
             transform.position = Vector2.Lerp(transform.position, worm.position, speed);
             transform.position = new Vector3(transform.position.x, transform.position.y, -10);
         }
-=======
         Vector3 target_position = worm.position + offset; // crate destination for camera (so it doesnt go into worm)
         float distance = Vector3.Distance(transform.position, target_position); // get distance from current to desired position
 
@@ -32,6 +30,5 @@ public class CameraMove : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, target_position, speed);
         else if (distance > cam.orthographicSize * 0.4) // slow down to make it less jittery
             transform.position = Vector3.Lerp(transform.position, target_position, speed / 2);
->>>>>>> Stashed changes:Assets/Scripts/CameraMove.cs
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class BiteManager : MonoBehaviour
 {
     public bool Grabbing = false;
+    public int FoodEaten = 0;
+
     public DistanceJoint2D LockIn;
     public Animator anim;
     public Transform TargetAnchor;
@@ -27,10 +29,7 @@ public class BiteManager : MonoBehaviour
                 case "Food": // if bit food, eat it
                     Debug.Log("ate object");
                     Destroy(collision.gameObject);
-<<<<<<< Updated upstream
-=======
                     FoodEaten++; // increment food eaten
->>>>>>> Stashed changes
                     break;
             }
         }
