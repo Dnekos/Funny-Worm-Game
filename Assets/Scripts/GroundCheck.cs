@@ -7,7 +7,8 @@ public class GroundCheck : MonoBehaviour
     public MoveHead Controller;
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Ground")
+        // return true if collider hits ground
+        if (collision.collider.tag == "Ground" || collision.collider.tag == "Grabbable")
             Controller.onGround = true;
     }
 }
