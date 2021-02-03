@@ -13,21 +13,24 @@ public class BiteManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift) && !Grabbing)
         {
-            anim.SetTrigger("Bite");
-            Debug.Log("biting down");
+            anim.SetTrigger("Bite"); // start bite animation in Animator
 
             switch (collision.tag)
             {
-                case "Grabbable":
+                case "Grabbable": // if bit movable physics object, stay in place in relation to collision
                     Debug.Log("grabbed object");
                     LockIn.connectedBody = collision.attachedRigidbody;
                     LockIn.connectedAnchor = collision.attachedRigidbody.transform.InverseTransformPoint(TargetAnchor.position);
                     LockIn.enabled = true;
                     Grabbing = true;
                     break;
-                case "Food":
+                case "Food": // if bit food, eat it
                     Debug.Log("ate object");
                     Destroy(collision.gameObject);
+<<<<<<< Updated upstream
+=======
+                    FoodEaten++; // increment food eaten
+>>>>>>> Stashed changes
                     break;
             }
         }
@@ -35,7 +38,7 @@ public class BiteManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.LeftShift)) // releasing grab
         {
             LockIn.enabled = false;
             Grabbing = false;

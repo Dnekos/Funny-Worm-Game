@@ -36,14 +36,12 @@ public class MoveHead : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             change.x++;
 
-        //transform.LookAt(new Vector3(changex, changey),Vector3.forward);
-        if (change != Vector3.zero && (onGround || MoveIfNotOnGround))
+        if (change != Vector3.zero && (onGround || MoveIfNotOnGround)) // if any of WASD is pressed
         {
-            if (!biter.Grabbing)
+            if (!biter.Grabbing) // don't rotate head if attached to physicsobject
             {
-                float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg;
-
-                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg; // turn unitvector to angle
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); // set rotation of head
             }
             if (MoveByForce)
                 head.AddForce(change * spd, ForceMode2D.Force);
@@ -51,17 +49,33 @@ public class MoveHead : MonoBehaviour
                 transform.position += change * spd * Time.deltaTime;
         }
 
+<<<<<<< Updated upstream
 
 
         if (Input.GetKeyDown(KeyCode.Space) && anime.isPlaying == false && onGround)
+=======
+        if (Input.GetKey(KeyCode.Space) && anime.isPlaying == false && onGround)
+>>>>>>> Stashed changes
         {
-            float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
-            anime.transform.rotation = transform.rotation;//Quaternion.AngleAxis(angle, Vector3.forward);
+            //float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
+            anime.transform.rotation = transform.rotation; // match direction with head
+            anime.transform.position = (transform.position + transform.position + anime.transform.position) / 3f; // move end of worm closer to head 
 
+<<<<<<< Updated upstream
             anime.Play("Jump");
             Debug.Log("pressed jump");
         }
 
         onGround = false;
+=======
+            onGround = false; // compromise for now while working out GroundCheck
+            anime.Play("Jump"); // start animation (animation triggers event that calls JumpHandler
+            Debug.Log("pressed jump");
+        }
+
+        // if fallen too low, restart scene
+        if (transform.position.y < -20f)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+>>>>>>> Stashed changes
     }
 }
