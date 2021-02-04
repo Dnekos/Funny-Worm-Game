@@ -9,7 +9,7 @@ public class JumpHandler : MonoBehaviour
     public void Jump()
     {
         Vector2 change = Vector2.zero;
-
+        /*
         if (Input.GetKey(KeyCode.W))
             change.y++;
         if (Input.GetKey(KeyCode.A))
@@ -20,7 +20,7 @@ public class JumpHandler : MonoBehaviour
             change.x++;
         if (change == Vector2.zero)
             change = Vector2.up;
-
+            */
         head.AddForce(change * speed, ForceMode2D.Impulse); // add force in direction of keys
         Debug.Log("jump");
     }
