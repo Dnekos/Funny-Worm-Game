@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 161456702}
   - component: {fileID: 161456704}
   - component: {fileID: 161456703}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 466533094}
   - component: {fileID: 466533093}
   - component: {fileID: 466533092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -924,6 +924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WormPC
       objectReference: {fileID: 0}
+    - target: {fileID: 3075888766311008482, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
+      propertyPath: minspeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3075888766311008490, guid: d4405b76b4f68e6428f1e04aad4373f2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1039,7 +1043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1289226689}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1074,7 +1078,7 @@ GameObject:
   - component: {fileID: 1303631788}
   - component: {fileID: 1303631790}
   - component: {fileID: 1303631789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}

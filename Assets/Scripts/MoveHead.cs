@@ -7,16 +7,21 @@ using UnityEngine.InputSystem;
 public class MoveHead : MonoBehaviour
 {
     public float spd = 12f;
-    public bool onGround = false;
+    public bool onGround = false; // used for limiting air movement and (eventually) respawns
 
-    public Inputs controls;
+    public bool jumping = false;
+
+    
     public Animation anime;
-    public Rigidbody2D head;
+    Inputs controls;
+    Rigidbody2D head;
     BiteManager biter;
 
     [Header("Debug")]
     public bool MoveByForce = false; // toggles movement styles (rigidbody weight adjustments needed if switching)
     public bool MoveIfNotOnGround = true; // debug for testing GroundCheck
+
+    public Vector3 MoveDirection;
 
     private void Awake()
     {
@@ -30,6 +35,7 @@ public class MoveHead : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        head = GetComponent<Rigidbody2D>();
         biter = GetComponent<BiteManager>();
     }
 
@@ -40,49 +46,47 @@ public class MoveHead : MonoBehaviour
 
     void OnMove(Vector2 move_input)
     {
-        Vector3 change = move_input;
-        Debug.Log("moving" + change);
-       
+        MoveDirection = move_input;
     }
 
-
-    /* if (change != Vector3.zero && (onGround || MoveIfNotOnGround)) // if any of WASD is pressed
-        {
-            if (!biter.Grabbing) // don't rotate head if attached to physicsobject
-            {
-                float angle = Mathf.Atan2(change.y, change.x) * Mathf.Rad2Deg; // turn unitvector to angle
-                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); // set rotation of head
-            }
-            if (MoveByForce)
-                head.AddForce(change * spd, ForceMode2D.Force);
-            else
-                transform.position += change * spd * Time.deltaTime;
-        }*/
+     
     void OnJump(float keypress)
     {
-        if (keypress == 1 && !anime.isPlaying)
+        if (keypress == 1)
         {
+            jumping = true;
 
+            anime.transform.rotation = transform.rotation; // match direction with head
+            anime.transform.position = (transform.position + transform.position + anime.transform.position) / 3f; // move end of worm closer to head 
+            Debug.Log("pressed jump");
         }
         if (keypress == 0  && onGround)
         {
-            //float angle = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg;
-            anime.transform.rotation = transform.rotation; // match direction with head
-            anime.transform.position = (transform.position + transform.position + anime.transform.position) / 3f; // move end of worm closer to head 
-
-            onGround = false; // compromise for now while working out GroundCheck
             anime.Play("Jump"); // start animation (animation triggers event that calls JumpHandler
-            Debug.Log("pressed jump");
+            Debug.Log("released jump");
         }
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if (!biter.Grabbing && MoveDirection != Vector3.zero) // don't rotate head if attached to physicsobject
+        {
+            float angle = Mathf.Atan2(MoveDirection.y, MoveDirection.x) * Mathf.Rad2Deg; // turn unitvector to angle
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); // set rotation of head
+        }
+        if (onGround)
+        {
+            if (MoveByForce)
+                head.AddForce(MoveDirection * spd, ForceMode2D.Force);
+            else
+                transform.position += MoveDirection * spd * Time.deltaTime;
+        }
 
         // if fallen too low, restart scene
         if (transform.position.y < -20f)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        onGround = false;
     }
     private void OnEnable()
     {

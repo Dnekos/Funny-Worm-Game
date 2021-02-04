@@ -4,24 +4,31 @@ using UnityEngine;
 
 public class JumpHandler : MonoBehaviour
 {
+    [SerializeField]
+    float minspeed = 5;
     public float speed = 10;
-    public Rigidbody2D head;
+
+    [SerializeField]
+    Rigidbody2D head;
+    [SerializeField]
+    MoveHead head_controller;
+
+    [SerializeField]
+    float max_jump_time = 1f;
+    float jump_timer = 0;
+
+    private void Update()
+    {
+        if (head_controller.jumping)
+            jump_timer += Time.deltaTime;
+    }
+
     public void Jump()
     {
-        Vector2 change = Vector2.zero;
-        /*
-        if (Input.GetKey(KeyCode.W))
-            change.y++;
-        if (Input.GetKey(KeyCode.A))
-            change.x--;
-        if (Input.GetKey(KeyCode.S))
-            change.y--;
-        if (Input.GetKey(KeyCode.D))
-            change.x++;
-        if (change == Vector2.zero)
-            change = Vector2.up;
-            */
-        head.AddForce(change * speed, ForceMode2D.Impulse); // add force in direction of keys
+        head.AddForce(head_controller.MoveDirection * Mathf.Lerp(minspeed, speed, jump_timer / max_jump_time), // lerp is to have rampup for chargedjump
+            ForceMode2D.Impulse); // add force in direction of keys
+        jump_timer = 0;
+
         Debug.Log("jump");
     }
 }

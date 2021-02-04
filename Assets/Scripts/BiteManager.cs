@@ -18,12 +18,12 @@ public class BiteManager : MonoBehaviour
     private void Awake()
     {
         controls = new Inputs();
-        controls.Player.Move.performed += ctx => OnGrab(ctx.ReadValue<float>());
+        controls.Player.Bite.performed += ctx => OnGrab(ctx.ReadValue<float>());
     }
 
     private void OnGrab(float value)
     {
-        Debug.LogError("pressed shift");
+        Debug.Log("pressed shift");
         shift_held = value;
     }
 

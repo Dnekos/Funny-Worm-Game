@@ -6,18 +6,26 @@
             "id": "5fc9423d-818d-4711-9ad0-5975f4285619",
             "actions": [
                 {
+                    "name": "Move",
+                    "type": "PassThrough",
+                    "id": "d7cd17de-ae42-4c20-bff1-cae7500db6b5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Jump",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "b997f4c0-67e7-4221-8bf8-92ea62f85467",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Bite",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "a84cfc42-4e8b-4702-8d97-b3f55d3a6431",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
@@ -26,14 +34,6 @@
                     "type": "Button",
                     "id": "c505b4ad-e55f-4bf7-a31f-5739e6f2c7dd",
                     "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "d7cd17de-ae42-4c20-bff1-cae7500db6b5",
-                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
