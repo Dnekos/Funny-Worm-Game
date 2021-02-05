@@ -11,11 +11,13 @@ public class MoveHead : MonoBehaviour
 
     public bool jumping = false;
 
-    
     public Animation anime;
     Inputs controls;
     Rigidbody2D head;
     BiteManager biter;
+
+    public GameObject canvas;
+    bool paused = false;
 
     [Header("Debug")]
     public bool MoveByForce = false; // toggles movement styles (rigidbody weight adjustments needed if switching)
@@ -41,7 +43,8 @@ public class MoveHead : MonoBehaviour
 
     void OnPause()
     {
-
+        paused = !paused;
+        canvas.SetActive(paused);
     }
 
     void OnMove(Vector2 move_input)
