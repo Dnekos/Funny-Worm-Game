@@ -41,7 +41,7 @@ public class MoveHead : MonoBehaviour
         biter = GetComponent<BiteManager>();
     }
 
-    void OnPause()
+    public void OnPause()
     {
         paused = !paused;
         canvas.SetActive(paused);
@@ -52,7 +52,6 @@ public class MoveHead : MonoBehaviour
         MoveDirection = move_input;
     }
 
-     
     void OnJump(float keypress)
     {
         if (keypress == 1)
