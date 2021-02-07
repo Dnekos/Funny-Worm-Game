@@ -746,7 +746,7 @@ AnimationClip:
     script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
   m_PPtrCurves: []
   m_SampleRate: 60
-  m_WrapMode: 0
+  m_WrapMode: 1
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -3267,7 +3267,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.33333334
-    functionName: Jump
+    functionName: HoldPosition
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

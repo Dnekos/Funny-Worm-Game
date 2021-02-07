@@ -57,7 +57,8 @@ public class MoveHead : MonoBehaviour
             jumping = true;
 
             anime.transform.rotation = transform.rotation; // match direction with head
-            anime.transform.position = (transform.position + transform.position + anime.transform.position) / 3f; // move end of worm closer to head 
+            //anime.transform.position = (transform.position + transform.position + anime.transform.position) / 3f; // move end of worm closer to head 
+            anime.Play("Coil");
             Debug.Log("pressed jump");
         }
         if (keypress == 0  && onGround)

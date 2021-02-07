@@ -25,14 +25,16 @@ public class BiteManager : MonoBehaviour
     {
         Debug.Log("pressed shift");
         shift_held = value;
+        if (value == 1) // key down
+            anim.SetBool("ShiftKey", true); // start bite animation in Animator
+        else // key up
+            anim.SetBool("ShiftKey", false); // start bite animation in Animator
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (shift_held == 1 && !Grabbing)
         {
-            anim.SetTrigger("Bite"); // start bite animation in Animator
-
             switch (collision.tag)
             {
                 case "Grabbable": // if bit movable physics object, stay in place in relation to collision
@@ -48,6 +50,7 @@ public class BiteManager : MonoBehaviour
                     FoodEaten++; // increment food eaten
                     break;
             }
+            shift_held = 0.5f; //sets to another non-zero value to stop OnTriggerStay from grabbing multiple objects without letting go
         }
     }
 

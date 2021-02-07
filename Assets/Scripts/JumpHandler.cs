@@ -31,4 +31,9 @@ public class JumpHandler : MonoBehaviour
 
         Debug.Log("jump");
     }
+
+    public void HoldPosition()
+    {
+        GetComponent<Animation>().Play("Coil_Hold");
+    }
 }
