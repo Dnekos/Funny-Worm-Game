@@ -10,13 +10,31 @@ public class BiteManager : MonoBehaviour
     public DistanceJoint2D LockIn;
     public Animator anim;
     public Transform TargetAnchor;
+    //MoveHead inputs;
+    Inputs controls;
+
+    float shift_held = 0;
+
+    private void Awake()
+    {
+        controls = new Inputs();
+        controls.Player.Bite.performed += ctx => OnGrab(ctx.ReadValue<float>());
+    }
+
+    private void OnGrab(float value)
+    {
+        Debug.Log("pressed shift");
+        shift_held = value;
+        if (value == 1) // key down
+            anim.SetBool("ShiftKey", true); // start bite animation in Animator
+        else // key up
+            anim.SetBool("ShiftKey", false); // start bite animation in Animator
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKey(KeyCode.LeftShift) && !Grabbing)
+        if (shift_held == 1 && !Grabbing)
         {
-            anim.SetTrigger("Bite"); // start bite animation in Animator
-
             switch (collision.tag)
             {
                 case "Grabbable": // if bit movable physics object, stay in place in relation to collision
@@ -32,15 +50,26 @@ public class BiteManager : MonoBehaviour
                     FoodEaten++; // increment food eaten
                     break;
             }
+            shift_held = 0.5f; //sets to another non-zero value to stop OnTriggerStay from grabbing multiple objects without letting go
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.LeftShift)) // releasing grab
+        if (shift_held == 0) // releasing grab
         {
             LockIn.enabled = false;
             Grabbing = false;
         }
+    }
+
+    private void OnEnable()
+    {
+        controls.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Player.Disable();
     }
 }
