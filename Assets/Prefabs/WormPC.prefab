@@ -32,7 +32,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114428675276293656}
-  m_LocalRotation: {x: -0, y: -0, z: -0.69929594, w: 0.7148323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.08, y: 9.75, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
@@ -114,8 +114,8 @@ MonoBehaviour:
   - {fileID: 8387897902386820925}
   - {fileID: 8387897902635226844}
   m_Bounds:
-    m_Center: {x: 0.018530846, y: 7.641142, z: 0}
-    m_Extent: {x: 2.6357949, y: 8.290098, z: 0}
+    m_Center: {x: 0.018534184, y: 7.641141, z: 0}
+    m_Extent: {x: 2.635795, y: 8.290096, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &7117324971185259852
@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2406ecda0daecb49b60adf49d8a26e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minspeed: 8
-  speed: 16
+  minspeed: 10
+  speed: 50
   head: {fileID: 8387897904385567278}
   head_controller: {fileID: 8387897904385567265}
   max_jump_time: 1
@@ -659,7 +659,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8387897902635226843}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0033154837, w: 0.9999945}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0033154537, w: 0.9999946}
   m_LocalPosition: {x: 3.029872, y: -0.000025483434, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -834,7 +834,6 @@ GameObject:
   - component: {fileID: 8387897904385567279}
   - component: {fileID: 6658267728441625425}
   - component: {fileID: 8387897904385567277}
-  - component: {fileID: 8457092696135049099}
   - component: {fileID: 8387897904385567265}
   - component: {fileID: 5797266032408723777}
   - component: {fileID: 5959219534779336765}
@@ -852,8 +851,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8387897904385567275}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.09, y: 15.69, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.09, y: 0.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2727209334310513389}
@@ -933,25 +932,6 @@ DistanceJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 1.4
   m_MaxDistanceOnly: 0
---- !u!95 &8457092696135049099
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8387897904385567275}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 375242116cccc534d84019b94beca559, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8387897904385567265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,6 +948,7 @@ MonoBehaviour:
   onGround: 0
   jumping: 0
   anime: {fileID: 591859692076547248}
+  canvas: {fileID: 0}
   MoveByForce: 0
   MoveIfNotOnGround: 1
   MoveDirection: {x: 0, y: 0, z: 0}
@@ -986,7 +967,7 @@ MonoBehaviour:
   Grabbing: 0
   FoodEaten: 0
   LockIn: {fileID: 8387897904385567277}
-  anim: {fileID: 8457092696135049099}
+  anim: {fileID: 2727209334310513386}
   TargetAnchor: {fileID: 3612402012642532989}
 --- !u!114 &5959219534779336765
 MonoBehaviour:

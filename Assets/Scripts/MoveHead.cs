@@ -24,6 +24,7 @@ public class MoveHead : MonoBehaviour
     public bool MoveIfNotOnGround = true; // debug for testing GroundCheck
 
     public Vector3 MoveDirection;
+    Quaternion jump_angle;
 
     private void Awake()
     {
@@ -58,13 +59,15 @@ public class MoveHead : MonoBehaviour
         {
             jumping = true;
 
-            anime.transform.rotation = transform.rotation; // match direction with head
+            jump_angle = transform.rotation; // save direction for hold
+            anime.transform.rotation = jump_angle; // match direction with head
             //anime.transform.position = (transform.position + transform.position + anime.transform.position) / 3f; // move end of worm closer to head 
             anime.Play("Coil");
             Debug.Log("pressed jump");
         }
         if (keypress == 0  && onGround)
         {
+ 
             anime.Play("Jump"); // start animation (animation triggers event that calls JumpHandler
             Debug.Log("released jump");
         }
@@ -72,17 +75,26 @@ public class MoveHead : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (!biter.Grabbing && MoveDirection != Vector3.zero) // don't rotate head if attached to physicsobject
         {
             float angle = Mathf.Atan2(MoveDirection.y, MoveDirection.x) * Mathf.Rad2Deg; // turn unitvector to angle
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); // set rotation of head
         }
-        if (onGround)
+
+        if (!jumping)
         {
-            if (MoveByForce)
-                head.AddForce(MoveDirection * spd, ForceMode2D.Force);
-            else
-                transform.position += MoveDirection * spd * Time.deltaTime;
+            if (onGround)
+            {
+                if (MoveByForce)
+                    head.AddForce(MoveDirection * spd, ForceMode2D.Force);
+                else
+                    transform.position += MoveDirection * spd * Time.deltaTime;
+            }
+        }
+        else
+        {
+            anime.transform.rotation = jump_angle; // match direction
         }
 
         // if fallen too low, restart scene

@@ -28,6 +28,7 @@ public class JumpHandler : MonoBehaviour
         head.AddForce(head_controller.MoveDirection * Mathf.Lerp(minspeed, speed, jump_timer / max_jump_time), // lerp is to have rampup for chargedjump
             ForceMode2D.Impulse); // add force in direction of keys
         jump_timer = 0;
+        head_controller.jumping = false;
 
         Debug.Log("jump");
     }
