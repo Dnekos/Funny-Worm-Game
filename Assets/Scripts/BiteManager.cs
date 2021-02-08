@@ -21,6 +21,14 @@ public class BiteManager : MonoBehaviour
         controls.Player.Bite.performed += ctx => OnGrab(ctx.ReadValue<float>());
     }
 
+    public void Pause(bool pause)
+    {
+        if (pause)
+            controls.Player.Bite.Enable();
+        else
+            controls.Player.Bite.Disable();
+    }
+
     private void OnGrab(float value)
     {
         Debug.Log("pressed shift");
