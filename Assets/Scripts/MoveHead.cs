@@ -52,13 +52,13 @@ public class MoveHead : MonoBehaviour
         biter.Pause(paused);
         if (paused)
         {
-            controls.Player.Move.Enable();
-            controls.Player.Jump.Enable();
+            controls.Player.Move.Disable();
+            controls.Player.Jump.Disable();
         }
         else
         {
-            controls.Player.Move.Disable();
-            controls.Player.Jump.Disable();
+            controls.Player.Move.Enable();
+            controls.Player.Jump.Enable();
         }
     }
 

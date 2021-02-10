@@ -443,11 +443,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5189866636998657016, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5189866636998657016, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5189866637351552584, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
       propertyPath: m_Pivot.x
@@ -539,23 +539,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5189866637351552594, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5189866637452945548, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5189866637452945548, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5189866637452945548, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3019573570026507479, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
+--- !u!1 &878567848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5189866637083182474, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
+  m_PrefabInstance: {fileID: 878567846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1289226688
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +834,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad9622398418d5640abe8477c931c62e, type: 3}
+--- !u!224 &1620100976 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6281412988814100563, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
+  m_PrefabInstance: {fileID: 878567846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1928194289717123838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -933,6 +943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeadSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 5797266032408723777, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+      propertyPath: CounterDisplay
+      value: 
+      objectReference: {fileID: 1620100976}
     - target: {fileID: 7117324971185259852, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1041,6 +1055,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.0058161775
       objectReference: {fileID: 0}
+    - target: {fileID: 8387897904385567265, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 878567848}
     m_RemovedComponents:
     - {fileID: 8457092696135049099, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
