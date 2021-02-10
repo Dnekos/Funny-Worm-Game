@@ -17,7 +17,7 @@ public class MoveHead : MonoBehaviour
     BiteManager biter;
 
     public GameObject canvas;
-    bool paused = false;
+    public bool paused = false;
 
     [Header("Debug")]
     public bool MoveByForce = false; // toggles movement styles (rigidbody weight adjustments needed if switching)
@@ -25,6 +25,7 @@ public class MoveHead : MonoBehaviour
 
     public Vector3 MoveDirection;
     Quaternion jump_angle;
+    
 
     private void Awake()
     {
@@ -46,6 +47,19 @@ public class MoveHead : MonoBehaviour
     {
         paused = !paused;
         canvas.SetActive(paused);
+
+        // disable controls
+        biter.Pause(paused);
+        if (paused)
+        {
+            controls.Player.Move.Disable();
+            controls.Player.Jump.Disable();
+        }
+        else
+        {
+            controls.Player.Move.Enable();
+            controls.Player.Jump.Enable();
+        }
     }
 
     void OnMove(Vector2 move_input)
@@ -67,7 +81,6 @@ public class MoveHead : MonoBehaviour
         }
         if (keypress == 0  && onGround)
         {
- 
             anime.Play("Jump"); // start animation (animation triggers event that calls JumpHandler
             Debug.Log("released jump");
         }
@@ -82,17 +95,14 @@ public class MoveHead : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); // set rotation of head
         }
 
-        if (!jumping)
+        if (!jumping && onGround && !paused)
         {
-            if (onGround)
-            {
-                if (MoveByForce)
-                    head.AddForce(MoveDirection * spd, ForceMode2D.Force);
-                else
-                    transform.position += MoveDirection * spd * Time.deltaTime;
-            }
+            if (MoveByForce)
+                head.AddForce(MoveDirection * spd, ForceMode2D.Force);
+            else
+                transform.position += MoveDirection * spd * Time.deltaTime;
         }
-        else
+        else if (jumping)
         {
             anime.transform.rotation = jump_angle; // match direction
         }

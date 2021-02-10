@@ -9,7 +9,16 @@ public class BiteManager : MonoBehaviour
 
     public DistanceJoint2D LockIn;
     public Animator anim;
-    public Transform TargetAnchor;
+    [SerializeField]
+    Transform TargetAnchor;
+
+    [Header("UI Settings")]
+    [SerializeField]
+    bool EnabledCounter = false;
+    [SerializeField]
+    Transform CounterDisplay;
+    int maxFood;
+    
     //MoveHead inputs;
     Inputs controls;
 
@@ -19,6 +28,20 @@ public class BiteManager : MonoBehaviour
     {
         controls = new Inputs();
         controls.Player.Bite.performed += ctx => OnGrab(ctx.ReadValue<float>());
+
+        if (EnabledCounter)
+        {
+            maxFood = GameObject.FindGameObjectsWithTag("Food").Length;
+            CounterDisplay.localScale =  Vector3.zero;
+        }
+    }
+
+    public void Pause(bool pause)
+    {
+        if (pause)
+            controls.Player.Bite.Disable();
+        else
+            controls.Player.Bite.Enable();
     }
 
     private void OnGrab(float value)
@@ -33,7 +56,7 @@ public class BiteManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (shift_held == 1 && !Grabbing)
+        if (shift_held < 0.5 && !Grabbing)
         {
             switch (collision.tag)
             {
@@ -48,9 +71,17 @@ public class BiteManager : MonoBehaviour
                     Debug.Log("ate object");
                     Destroy(collision.gameObject);
                     FoodEaten++; // increment food eaten
+
+                    //UI food tracker
+                    if (EnabledCounter)
+                        CounterDisplay.localScale = new Vector3(Mathf.Lerp(1, 0, FoodEaten / maxFood), 1, 1);
+
                     break;
             }
-            shift_held = 0.5f; //sets to another non-zero value to stop OnTriggerStay from grabbing multiple objects without letting go
+            // sets to another non-zero value to stop OnTriggerStay from grabbing multiple objects without letting go
+            // its at -=0.1f so that it can go either 5 frames or have room for error if multiple collisions happen in the same frame
+            // TODO: make this less scuffed
+            shift_held -= 0.1f; 
         }
     }
 
