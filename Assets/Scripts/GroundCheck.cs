@@ -12,7 +12,7 @@ public class GroundCheck : MonoBehaviour
         //Debug.DrawRay(transform.position, Vector3.down * 1f,Color.green, 0.1f);
         if (Physics2D.Raycast(transform.position, Vector3.down, 1.3f, layerMask))
         {
-            Debug.Log("On Ground");
+            //Debug.Log("On Ground");
             Controller.onGround = true;
         }
     }

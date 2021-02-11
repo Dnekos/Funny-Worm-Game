@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+//using UnityEngine.U2D.IK; //needed if have to call the IKManager
 
 public class MoveHead : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class MoveHead : MonoBehaviour
     Rigidbody2D head;
     BiteManager biter;
 
+    [Header("Pausing")]
     public GameObject canvas;
     public bool paused = false;
 
@@ -24,8 +26,11 @@ public class MoveHead : MonoBehaviour
     public bool MoveIfNotOnGround = true; // debug for testing GroundCheck
 
     public Vector3 MoveDirection;
+
+    // space held positions
     Quaternion jump_angle;
-    
+    Vector3 jump_position;
+
 
     private void Awake()
     {
@@ -45,7 +50,7 @@ public class MoveHead : MonoBehaviour
 
     public void OnPause()
     {
-        paused = !paused;
+        paused = !paused; // toggle pause
         canvas.SetActive(paused);
 
         // disable controls
@@ -69,19 +74,21 @@ public class MoveHead : MonoBehaviour
 
     void OnJump(float keypress)
     {
-        if (keypress == 1)
+        if (keypress == 1 && onGround)
         {
             jumping = true;
 
             jump_angle = transform.rotation; // save direction for hold
+            jump_position = anime.transform.position; // save position for hold
+
             anime.transform.rotation = jump_angle; // match direction with head
-            //anime.transform.position = (transform.position + transform.position + anime.transform.position) / 3f; // move end of worm closer to head 
+
             anime.Play("Coil");
             Debug.Log("pressed jump");
         }
-        if (keypress == 0  && onGround)
+        if (keypress == 0)
         {
-            anime.Play("Jump"); // start animation (animation triggers event that calls JumpHandler
+            anime.Play("Jump");
             Debug.Log("released jump");
         }
     }
@@ -105,6 +112,7 @@ public class MoveHead : MonoBehaviour
         else if (jumping)
         {
             anime.transform.rotation = jump_angle; // match direction
+            anime.transform.position = jump_position; // match position (to stop sliding)
         }
 
         // if fallen too low, restart scene

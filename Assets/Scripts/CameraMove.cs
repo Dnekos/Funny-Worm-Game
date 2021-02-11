@@ -23,7 +23,8 @@ public class CameraMove : MonoBehaviour
             transform.position = Vector2.Lerp(transform.position, worm.position, speed);
             transform.position = new Vector3(transform.position.x, transform.position.y, -10);
         }
-        Vector3 target_position = worm.position + offset; // crate destination for camera (so it doesnt go into worm)
+
+        Vector3 target_position = worm.position + offset; // offset destination for camera (so it doesnt go into worm)
         float distance = Vector3.Distance(transform.position, target_position); // get distance from current to desired position
 
         if (distance > cam.orthographicSize * 0.6) // move to worm when moving offscreen

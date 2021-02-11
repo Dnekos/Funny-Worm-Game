@@ -56,7 +56,7 @@ public class BiteManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (shift_held < 0.5 && !Grabbing)
+        if (shift_held > 0.5 && !Grabbing)
         {
             switch (collision.tag)
             {

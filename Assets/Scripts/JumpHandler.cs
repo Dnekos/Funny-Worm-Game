@@ -19,7 +19,7 @@ public class JumpHandler : MonoBehaviour
 
     private void Update()
     {
-        if (head_controller.jumping)
+        if (head_controller.jumping) // increment time as space is held
             jump_timer += Time.deltaTime;
     }
 
@@ -27,10 +27,11 @@ public class JumpHandler : MonoBehaviour
     {
         head.AddForce(head_controller.MoveDirection * Mathf.Lerp(minspeed, speed, jump_timer / max_jump_time), // lerp is to have rampup for chargedjump
             ForceMode2D.Impulse); // add force in direction of keys
-        jump_timer = 0;
-        head_controller.jumping = false;
+        head_controller.jumping = false; // enable movement again
 
-        Debug.Log("jump");
+        Debug.Log("jumped with force of " + Mathf.Lerp(minspeed, speed, jump_timer / max_jump_time) + " " + jump_timer + "/" + max_jump_time);
+        jump_timer = 0; // reset timer
+
     }
 
     public void HoldPosition()
