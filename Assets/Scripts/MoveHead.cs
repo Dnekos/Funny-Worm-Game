@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-//using UnityEngine.U2D.IK; //needed if have to call the IKManager
+using UnityEngine.U2D.IK; //needed if have to call the IKManager
 
 public class MoveHead : MonoBehaviour
 {
@@ -16,6 +16,9 @@ public class MoveHead : MonoBehaviour
     Inputs controls;
     Rigidbody2D head;
     BiteManager biter;
+
+    public IKManager2D ik;
+
 
     [Header("Pausing")]
     public GameObject canvas;
@@ -30,6 +33,7 @@ public class MoveHead : MonoBehaviour
     // space held positions
     Quaternion jump_angle;
     Vector3 jump_position;
+
 
 
     private void Awake()
@@ -88,7 +92,12 @@ public class MoveHead : MonoBehaviour
         }
         if (keypress == 0)
         {
+            /*
             anime.Play("Jump");
+            */
+            anime.Stop();
+            ik.weight = 1;
+            anime.GetComponent<JumpHandler>().Jump();   
             Debug.Log("released jump");
         }
     }
