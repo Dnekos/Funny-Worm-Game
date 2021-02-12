@@ -30,4 +30,9 @@ public class MenuManager : MonoBehaviour
     {
         Screen.fullScreen = !Screen.fullScreen;
     }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
