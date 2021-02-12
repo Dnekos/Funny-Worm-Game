@@ -114,8 +114,8 @@ MonoBehaviour:
   - {fileID: 8387897902386820925}
   - {fileID: 8387897902635226844}
   m_Bounds:
-    m_Center: {x: 0.018534184, y: 7.641141, z: 0}
-    m_Extent: {x: 2.635795, y: 8.290096, z: 0}
+    m_Center: {x: 7.8007708, y: 0.04048419, z: 0}
+    m_Extent: {x: 8.448385, y: 2.6287684, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &7117324971185259852
@@ -665,7 +665,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8387897902386820925}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.38}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8387897903179999031
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +970,7 @@ MonoBehaviour:
   LockIn: {fileID: 8387897904385567277}
   anim: {fileID: 2727209334310513386}
   TargetAnchor: {fileID: 3612402012642532989}
-  EnabledCounter: 0
+  EnabledCounter: 1
   CounterDisplay: {fileID: 0}
 --- !u!114 &5959219534779336765
 MonoBehaviour:
