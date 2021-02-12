@@ -237,6 +237,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5189866637083182474, guid: 1e0bc714ccb256246a46252ed37b6783, type: 3}
   m_PrefabInstance: {fileID: 878567846}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &242420090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8387897902635226843, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+  m_PrefabInstance: {fileID: 507686441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &466533094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2575155163381678211, guid: 37eb21c7f3044124c9d77fe68ca9319c, type: 3}
@@ -269,6 +274,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WormPC
       objectReference: {fileID: 0}
+    - target: {fileID: 1114428675276293658, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+      propertyPath: last_bone
+      value: 
+      objectReference: {fileID: 242420090}
+    - target: {fileID: 1114428675276293658, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+      propertyPath: first_bone
+      value: 
+      objectReference: {fileID: 1388368502}
     - target: {fileID: 8387897902364859629, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
@@ -720,6 +733,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1388368502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8387897902364859628, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+  m_PrefabInstance: {fileID: 507686441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1394106796
 GameObject:
   m_ObjectHideFlags: 0
