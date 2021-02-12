@@ -222,6 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2406ecda0daecb49b60adf49d8a26e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  first_bone: {fileID: 8387897902364859628}
+  last_bone: {fileID: 8387897902635226843}
   minspeed: 18
   speed: 50
   head: {fileID: 8387897904385567278}
@@ -948,6 +950,7 @@ MonoBehaviour:
   onGround: 0
   jumping: 0
   anime: {fileID: 591859692076547248}
+  ik: {fileID: 0}
   canvas: {fileID: 0}
   paused: 0
   MoveByForce: 0
