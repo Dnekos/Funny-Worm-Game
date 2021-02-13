@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BiteManager : MonoBehaviour
 {
     public bool Grabbing = false;
@@ -70,7 +70,10 @@ public class BiteManager : MonoBehaviour
                 case "Food": // if bit food, eat it
                     Debug.Log("ate object");
                     Destroy(collision.gameObject);
+
                     FoodEaten++; // increment food eaten
+                    if (FoodEaten == maxFood) // if eaten all food, go to next level
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
                     //UI food tracker
                     if (EnabledCounter)
