@@ -86,7 +86,7 @@ public class MoveHead : MonoBehaviour
             anime.Play("Coil");
             Debug.Log("pressed jump");
         }
-        if (keypress == 0)
+        if (keypress == 0 && jumping)
         {
             anime.Play("Jump");
             Debug.Log("released jump");
