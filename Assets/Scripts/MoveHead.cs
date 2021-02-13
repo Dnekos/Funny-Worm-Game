@@ -116,8 +116,8 @@ public class MoveHead : MonoBehaviour
         }
 
         // if fallen too low, restart scene
-        if (transform.position.y < -20f)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //if (transform.position.y < -20f)
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         onGround = false;
     }
