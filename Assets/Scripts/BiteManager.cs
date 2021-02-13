@@ -17,7 +17,7 @@ public class BiteManager : MonoBehaviour
     bool EnabledCounter = false;
     [SerializeField]
     Transform CounterDisplay;
-    int maxFood;
+    float maxFood;
     
     //MoveHead inputs;
     Inputs controls;
@@ -32,6 +32,7 @@ public class BiteManager : MonoBehaviour
         if (EnabledCounter)
         {
             maxFood = GameObject.FindGameObjectsWithTag("Food").Length;
+            Debug.Log(maxFood);
             CounterDisplay.localScale =  Vector3.zero;
         }
     }
