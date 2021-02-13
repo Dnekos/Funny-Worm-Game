@@ -296,7 +296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2727209334310513388}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.6, y: 0, z: -1.74}
+  m_LocalPosition: {x: 2.6, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 8387897904385567276}
@@ -419,7 +419,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 2.61}
+  m_Size: {x: 1.5, y: 2.6}
   m_Direction: 0
 --- !u!114 &3513846563274692916
 MonoBehaviour:
@@ -481,7 +481,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 3.99}
+  m_Size: {x: 1.5, y: 4}
   m_Direction: 0
 --- !u!114 &2816323974195566888
 MonoBehaviour:
@@ -621,7 +621,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 4.26}
+  m_Size: {x: 1.5, y: 4.3}
   m_Direction: 0
 --- !u!114 &6966044170525585387
 MonoBehaviour:
@@ -713,7 +713,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 4.1}
+  m_Size: {x: 1.5, y: 4.1}
   m_Direction: 0
 --- !u!114 &8348666039282278452
 MonoBehaviour:
@@ -806,7 +806,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 3.45}
+  m_Size: {x: 1.5, y: 3.5}
   m_Direction: 0
 --- !u!114 &587637443028238584
 MonoBehaviour:
