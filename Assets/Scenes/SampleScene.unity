@@ -358,7 +358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919d6ea8e6d5c2945857ad5f71127298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1117440619}
+  eatAudio: {fileID: 8300000, guid: 3ecba52c698cab940b5e26e9627788b2, type: 3}
+  gameAudio: {fileID: 8300000, guid: 8556ff35086ef2f42ba6e5692aaf6908, type: 3}
+  titleAudio: {fileID: 8300000, guid: 3fdf76a0fd51cee428ba5ed2400b7cb7, type: 3}
+  volume: 0
 --- !u!4 &514514228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1928194290143442826, guid: 475bfe6dbaee5b44192803b63fe7ef6a, type: 3}
@@ -1083,6 +1087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeadSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 5797266032408723777, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 514514224}
     - target: {fileID: 7117324971185259852, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1212,11 +1220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7370853294184202419, guid: 4beb03784ad89f945b2e88a53e0f7ebb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5
+      value: -8.49
       objectReference: {fileID: 0}
     - target: {fileID: 7370853294184202419, guid: 4beb03784ad89f945b2e88a53e0f7ebb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.41
+      value: 4.98
       objectReference: {fileID: 0}
     - target: {fileID: 7370853294184202419, guid: 4beb03784ad89f945b2e88a53e0f7ebb, type: 3}
       propertyPath: m_LocalPosition.z

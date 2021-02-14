@@ -59,7 +59,7 @@ public class BiteManager : MonoBehaviour
                     Debug.Log("ate object");
                     Destroy(collision.gameObject);
                     FoodEaten++; // increment food eaten
-                    audioManager.soundPlayer("eatFood");//Call other script to play one shot of the consumption audio
+                    audioManager.soundPlayer(AudioManager.Sounds.eatFood);//Call other script to play one shot of the consumption audio
                     break;
             }
             shift_held = 0.5f; //sets to another non-zero value to stop OnTriggerStay from grabbing multiple objects without letting go
