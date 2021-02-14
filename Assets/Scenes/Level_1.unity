@@ -934,6 +934,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: WormPC
       objectReference: {fileID: 0}
+    - target: {fileID: 1114428675276293658, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+      propertyPath: chargecolor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114428675276293658, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+      propertyPath: chargecolor.b
+      value: 0.18431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114428675276293658, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+      propertyPath: chargecolor.g
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114428675276293658, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
+      propertyPath: chargecolor.r
+      value: 0.78039217
+      objectReference: {fileID: 0}
     - target: {fileID: 5797266032408723777, guid: eac172d5b54d58f41aab8624ac1a14a2, type: 3}
       propertyPath: CounterDisplay
       value: 
