@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
 
     public enum Sounds
     {
-        eatFood
+        eatFood,
     };
 
     // Start is called before the first frame update
