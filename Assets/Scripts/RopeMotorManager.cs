@@ -11,7 +11,7 @@ public class RopeMotorManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (timetoreverse <= 0)
+        if (timetoreverse <= 0) // when time hits 0, reverse speed and reset time
         {
             timetoreverse = maxtimetoreverse;
             JointMotor2D motor = hinge.motor;

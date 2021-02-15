@@ -17,20 +17,35 @@ public class JumpHandler : MonoBehaviour
     float max_jump_time = 1f;
     float jump_timer = 0;
 
+    [Header("Charge Color")]
+    [SerializeField]
+    SpriteRenderer wormbody;
+    [SerializeField]
+    SpriteRenderer wormhead;
+    [SerializeField]
+    Color chargecolor;
+
     private void Update()
     {
-        if (head_controller.jumping)
+        if (head_controller.jumping) // increment time as space is held
+        {
             jump_timer += Time.deltaTime;
+            wormbody.color = Color.Lerp(Color.white, chargecolor, jump_timer / max_jump_time);
+            wormhead.color = Color.Lerp(Color.white, chargecolor, jump_timer / max_jump_time);            
+        }
     }
 
     public void Jump()
     {
         head.AddForce(head_controller.MoveDirection * Mathf.Lerp(minspeed, speed, jump_timer / max_jump_time), // lerp is to have rampup for chargedjump
             ForceMode2D.Impulse); // add force in direction of keys
-        jump_timer = 0;
-        head_controller.jumping = false;
+        head_controller.jumping = false; // enable movement again
 
-        Debug.Log("jump");
+        wormbody.color = Color.white;
+        wormhead.color = Color.white;
+
+        Debug.Log("jumped with force of " + Mathf.Lerp(minspeed, speed, jump_timer / max_jump_time) + " " + jump_timer + "/" + max_jump_time);
+        jump_timer = 0; // reset timer
     }
 
     public void HoldPosition()
