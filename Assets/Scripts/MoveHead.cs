@@ -69,6 +69,7 @@ public class MoveHead : MonoBehaviour
     {
         paused = !paused; // toggle pause
         canvas.SetActive(paused);
+        AudioManager.PlayButtonSFX();
 
         // disable controls
         biter.Pause(paused);

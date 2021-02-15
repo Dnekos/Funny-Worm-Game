@@ -75,6 +75,7 @@ public class BiteManager : MonoBehaviour
                         eatenFoodThisFrame = true; // prevents eating 2 food in a frame
 
                         Destroy(collision.gameObject);
+                        AudioManager.PlayBiteSFX();
 
                         FoodEaten++; // increment food eaten
                         if (FoodEaten == maxFood) // if eaten all food, go to next level
