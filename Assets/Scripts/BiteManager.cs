@@ -17,12 +17,14 @@ public class BiteManager : MonoBehaviour
     bool EnabledCounter = false;
     [SerializeField]
     Transform CounterDisplay;
-    int maxFood;
+    float maxFood;
     
     //MoveHead inputs;
     Inputs controls;
 
     float shift_held = 0;
+
+    bool eatenFoodThisFrame = false;
 
     private void Awake()
     {
@@ -68,17 +70,20 @@ public class BiteManager : MonoBehaviour
                     Grabbing = true;
                     break;
                 case "Food": // if bit food, eat it
-                    Debug.Log("ate object");
-                    Destroy(collision.gameObject);
+                    if (!eatenFoodThisFrame) // eating the food repeats this twice for some reason
+                    {
+                        eatenFoodThisFrame = true; // prevents eating 2 food in a frame
 
-                    FoodEaten++; // increment food eaten
-                    if (FoodEaten == maxFood) // if eaten all food, go to next level
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                        Destroy(collision.gameObject);
 
-                    //UI food tracker
-                    if (EnabledCounter)
-                        CounterDisplay.localScale = new Vector3(Mathf.Lerp(1, 0, FoodEaten / maxFood), 1, 1);
+                        FoodEaten++; // increment food eaten
+                        if (FoodEaten == maxFood) // if eaten all food, go to next level
+                            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+                        //UI food tracker
+                        if (EnabledCounter)
+                            CounterDisplay.localScale = new Vector3(Mathf.Lerp(0, 1, FoodEaten / maxFood), 1, 1);
+                    }
                     break;
             }
             // sets to another non-zero value to stop OnTriggerStay from grabbing multiple objects without letting go
@@ -95,6 +100,8 @@ public class BiteManager : MonoBehaviour
             LockIn.enabled = false;
             Grabbing = false;
         }
+
+        eatenFoodThisFrame = false;
     }
 
     private void OnEnable()

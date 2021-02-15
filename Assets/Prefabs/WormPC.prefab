@@ -114,8 +114,8 @@ MonoBehaviour:
   - {fileID: 8387897902386820925}
   - {fileID: 8387897902635226844}
   m_Bounds:
-    m_Center: {x: 7.8007708, y: 0.04048419, z: 0}
-    m_Extent: {x: 8.448385, y: 2.6287684, z: 0}
+    m_Center: {x: 7.8007708, y: 0.040484667, z: 0}
+    m_Extent: {x: 8.448385, y: 2.628769, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &7117324971185259852
@@ -227,6 +227,9 @@ MonoBehaviour:
   head: {fileID: 8387897904385567278}
   head_controller: {fileID: 8387897904385567265}
   max_jump_time: 1
+  wormbody: {fileID: 1114428675276293661}
+  wormhead: {fileID: 2727209334310513387}
+  chargecolor: {r: 0.78039217, g: 0.34117648, b: 0.18431373, a: 1}
 --- !u!114 &6096434014009306457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 8387897904385567265}
+  index: 0
 --- !u!1 &2319752044130609235
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2727209334310513388}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.6, y: 0, z: -1.74}
+  m_LocalPosition: {x: 2.6, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 8387897904385567276}
@@ -419,7 +423,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 2.61}
+  m_Size: {x: 1.5, y: 2.6}
   m_Direction: 0
 --- !u!114 &3513846563274692916
 MonoBehaviour:
@@ -434,6 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 8387897904385567265}
+  index: 1
 --- !u!1 &8387897902386820924
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +486,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 3.99}
+  m_Size: {x: 1, y: 4}
   m_Direction: 0
 --- !u!114 &2816323974195566888
 MonoBehaviour:
@@ -496,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 8387897904385567265}
+  index: 5
 --- !u!1 &8387897902547721798
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +627,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 4.26}
+  m_Size: {x: 1.5, y: 4.3}
   m_Direction: 0
 --- !u!114 &6966044170525585387
 MonoBehaviour:
@@ -636,6 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 8387897904385567265}
+  index: 4
 --- !u!1 &8387897902635226843
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +720,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 4.1}
+  m_Size: {x: 1.5, y: 4.1}
   m_Direction: 0
 --- !u!114 &8348666039282278452
 MonoBehaviour:
@@ -728,6 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 8387897904385567265}
+  index: 3
 --- !u!1 &8387897903750918645
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +814,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.96, y: 3.45}
+  m_Size: {x: 1.5, y: 3.5}
   m_Direction: 0
 --- !u!114 &587637443028238584
 MonoBehaviour:
@@ -821,6 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 8387897904385567265}
+  index: 2
 --- !u!1 &8387897904385567275
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +954,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spd: 12
-  onGround: 0
   jumping: 0
   anime: {fileID: 591859692076547248}
   canvas: {fileID: 0}
@@ -953,6 +961,7 @@ MonoBehaviour:
   MoveByForce: 0
   MoveIfNotOnGround: 1
   MoveDirection: {x: 0, y: 0, z: 0}
+  Grounded: 00000000000000
 --- !u!114 &5797266032408723777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,3 +994,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 8387897904385567265}
+  index: 6
