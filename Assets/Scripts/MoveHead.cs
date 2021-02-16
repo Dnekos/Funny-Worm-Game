@@ -97,8 +97,12 @@ public class MoveHead : MonoBehaviour
             jumping = true;
 
             jump_angle = transform.rotation; // save direction for hold
-            jump_position = anime.transform.position; // save position for hold
+            if (anime.transform.position.y < transform.position.y)
+                jump_position = anime.transform.position; // save position for hold
+            else
+                jump_position = transform.position; // save position for hold
 
+            anime.transform.position = jump_position; // match position (to stop sliding)
             anime.transform.rotation = jump_angle; // match direction with head
 
             anime.Play("Coil");
