@@ -44,3 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 4250837813
+    locked: 0
+  - name: Background 2
+    uniqueID: 3723789429
+    locked: 0
+  - name: Play Area
+    uniqueID: 3363502663
+    locked: 0
