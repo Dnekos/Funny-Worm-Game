@@ -47,7 +47,7 @@ TagManager:
   - name: Background
     uniqueID: 4250837813
     locked: 0
-  - name: Background 2
+  - name: Foreground
     uniqueID: 3723789429
     locked: 0
   - name: Play Area
