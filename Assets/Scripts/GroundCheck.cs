@@ -12,6 +12,7 @@ public class GroundCheck : MonoBehaviour
         Controller.Grounded[index] = false;
 
         int layerMask = 1 << 6;
+        layerMask |= 1 << 4;
         //Debug.DrawRay(transform.position, Vector3.down * 1f,Color.green, 0.1f);
         if (Physics2D.Raycast(transform.position, Vector3.down, 1.3f, layerMask))
             Controller.Grounded[index] = true;
