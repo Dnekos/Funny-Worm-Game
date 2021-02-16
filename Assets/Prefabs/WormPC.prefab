@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minspeed: 18
-  speed: 50
+  speed: 35
   head: {fileID: 8387897904385567278}
   head_controller: {fileID: 8387897904385567265}
   max_jump_time: 1
