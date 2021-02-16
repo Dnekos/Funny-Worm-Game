@@ -44,3 +44,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 4250837813
+    locked: 0
+  - name: Foreground
+    uniqueID: 3723789429
+    locked: 0
+  - name: Play Area
+    uniqueID: 3363502663
+    locked: 0
+  - name: Inner Tiles
+    uniqueID: 720762587
+    locked: 0
+  - name: Camera
+    uniqueID: 3352784795
+    locked: 0
+  - name: Interactables
+    uniqueID: 1368189335
+    locked: 0
+  - name: Player
+    uniqueID: 1844752123
+    locked: 0

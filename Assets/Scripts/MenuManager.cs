@@ -10,6 +10,11 @@ public class MenuManager : MonoBehaviour
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
     }
 
+    public void PlayButtonPress()
+    {
+        AudioManager.PlayButtonSFX();
+    }
+
     public void ChangeVolume(float newVolume)
     {
         PlayerPrefs.SetFloat("volume", newVolume);
@@ -29,5 +34,10 @@ public class MenuManager : MonoBehaviour
     public void ToggleFullscreen()
     {
         Screen.fullScreen = !Screen.fullScreen;
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

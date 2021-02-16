@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BiteManager : MonoBehaviour
 {
     public bool Grabbing = false;
@@ -9,24 +9,41 @@ public class BiteManager : MonoBehaviour
 
     public DistanceJoint2D LockIn;
     public Animator anim;
-    public Transform TargetAnchor;
+    [SerializeField]
+    Transform TargetAnchor;
+
+    [Header("UI Settings")]
+    [SerializeField]
+    bool EnabledCounter = false;
+    [SerializeField]
+    Transform CounterDisplay;
+    float maxFood;
+    
     //MoveHead inputs;
     Inputs controls;
 
     float shift_held = 0;
 
+    bool eatenFoodThisFrame = false;
+
     private void Awake()
     {
         controls = new Inputs();
         controls.Player.Bite.performed += ctx => OnGrab(ctx.ReadValue<float>());
+
+        if (EnabledCounter)
+        {
+            maxFood = GameObject.FindGameObjectsWithTag("Food").Length;
+            CounterDisplay.localScale =  Vector3.zero;
+        }
     }
 
     public void Pause(bool pause)
     {
         if (pause)
-            controls.Player.Bite.Enable();
-        else
             controls.Player.Bite.Disable();
+        else
+            controls.Player.Bite.Enable();
     }
 
     private void OnGrab(float value)
@@ -41,7 +58,7 @@ public class BiteManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (shift_held == 1 && !Grabbing)
+        if (shift_held > 0.5 && !Grabbing)
         {
             switch (collision.tag)
             {
@@ -53,12 +70,27 @@ public class BiteManager : MonoBehaviour
                     Grabbing = true;
                     break;
                 case "Food": // if bit food, eat it
-                    Debug.Log("ate object");
-                    Destroy(collision.gameObject);
-                    FoodEaten++; // increment food eaten
+                    if (!eatenFoodThisFrame) // eating the food repeats this twice for some reason
+                    {
+                        eatenFoodThisFrame = true; // prevents eating 2 food in a frame
+
+                        Destroy(collision.gameObject);
+                        AudioManager.PlayBiteSFX();
+
+                        FoodEaten++; // increment food eaten
+                        if (FoodEaten == maxFood) // if eaten all food, go to next level
+                            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+                        //UI food tracker
+                        if (EnabledCounter)
+                            CounterDisplay.localScale = new Vector3(Mathf.Lerp(0, 1, FoodEaten / maxFood), 1, 1);
+                    }
                     break;
             }
-            shift_held = 0.5f; //sets to another non-zero value to stop OnTriggerStay from grabbing multiple objects without letting go
+            // sets to another non-zero value to stop OnTriggerStay from grabbing multiple objects without letting go
+            // its at -=0.1f so that it can go either 5 frames or have room for error if multiple collisions happen in the same frame
+            // TODO: make this less scuffed
+            shift_held -= 0.1f; 
         }
     }
 
@@ -69,6 +101,8 @@ public class BiteManager : MonoBehaviour
             LockIn.enabled = false;
             Grabbing = false;
         }
+
+        eatenFoodThisFrame = false;
     }
 
     private void OnEnable()
