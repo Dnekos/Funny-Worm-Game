@@ -10,6 +10,11 @@ public class MenuManager : MonoBehaviour
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
     }
 
+    public void PlayButtonPress()
+    {
+        AudioManager.PlayButtonSFX();
+    }
+
     public void ChangeVolume(float newVolume)
     {
         PlayerPrefs.SetFloat("volume", newVolume);

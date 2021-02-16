@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Settings Menu.unity
     guid: 35b1c7b2092507a4ba3e9adbb3f1e880
   - enabled: 1
-    path: Assets/Scenes/CreditsMenu.unity
-    guid: a0452215ef43b5648b7795f41b36a5be
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 4d3100dde8cb57246bf3ae6cab7f6ede
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: c48be4e2e5d865642b20de0dd84ca87b
@@ -27,9 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_3.unity
     guid: 91269dd5011f9fe41ae075d8020c9249
   - enabled: 1
-    path: Assets/Scenes/LevelSelect.unity
-    guid: 4d3100dde8cb57246bf3ae6cab7f6ede
+    path: Assets/Scenes/CreditsMenu.unity
+    guid: a0452215ef43b5648b7795f41b36a5be
   - enabled: 1
-    path: Assets/Scenes/GameOver Menu.unity
-    guid: 23dbad8ab3622c04f95c5546ddb670a1
+    path: Assets/Scenes/MainMenu 1.unity
+    guid: 664f458b8a72bc64aa900f37b3c65f4d
   m_configObjects: {}
